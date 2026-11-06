@@ -34,90 +34,93 @@ export const profile = {
   name: "Aiman Ashri",
   role: "Software Engineer",
   intro:
-    "I build web applications that are simple to use, quick to load and easy to maintain.",
+    "Turning complex problems into practical, reliable software solution.",
   photo: "/profile.jpeg", // e.g. "/me.jpg" in /public. Leave empty to show your initials.
   email: "ayman160@gmail.com",
 };
 
 export const about = [
-  "Write a short paragraph about yourself here: what you do, what you enjoy building and what kind of team you work best in.",
-  "Add a second paragraph if you like: how you got into software, what you are learning now, or what you do outside of work.",
+  "I'm a Software Engineer interested in the intersection of business problems and technology." + 
+   "I focus on understanding how systems and processes work, identifying inefficiencies, and translating business requirements into practical software solutions." +
+    "Rather than simply implementing features, I value understanding the reasoning behind technical decisions and how each part of a system contributes to the bigger picture.",
+  "My experience spans full-stack web development, with a focus on Laravel, PHP, React, Next.js, and PostgreSQL." + 
+  "I'm particularly interested in backend engineering, system architecture, database design, and application performance." + 
+  "As AI continues to reshape software development, I see it as a tool to work more effectively, not a replacement for engineering judgment." +
+  "I believe the real value of an engineer lies in understanding problems, making sound technical decisions, evaluating trade-offs, and building software that remains reliable and maintainable beyond its initial release.",
 ];
 
 export const skillGroups: SkillGroup[] = [
-  {
+ {
     name: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "SQL"],
+    skills: ["PHP", "TypeScript", "JavaScript", "Python", "Java", "C++", "SQL"],
   },
   {
     name: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "HTML and CSS"],
+    skills: ["React", "Next.js", "Tailwind CSS", "HTML", "CSS"],
   },
   {
     name: "Backend",
-    skills: ["Node.js", "REST APIs", "PostgreSQL"],
+    skills: ["Laravel", "Node.js", "REST APIs"],
   },
   {
-    name: "Tools",
-    skills: ["Git", "Docker", "Linux", "VS Code"],
+    name: "Databases",
+    skills: ["PostgreSQL", "MySQL"],
+  },
+  {
+    name: "Tools & Platforms",
+    skills: ["Git", "Docker","AWS", "Linux", "VS Code"],
   },
 ];
 
 export const projects: Project[] = [
-  {
-    title: "Project one",
-    description: "One sentence on what this project does and who it is for.",
-    category: "Web",
-    tags: ["Next.js", "TypeScript"],
-    codeUrl: "https://github.com/ayrilxo",
-  },
-  {
-    title: "Project two",
-    description: "One sentence on what this project does and who it is for.",
-    category: "Web",
-    tags: ["React", "Node.js"],
-  },
-  {
-    title: "Project three",
-    description: "One sentence on what this project does and who it is for.",
-    category: "Mobile",
-    tags: ["React Native"],
-  },
-  {
-    title: "Project four",
-    description: "One sentence on what this project does and who it is for.",
-    category: "Tools",
-    tags: ["Python"],
-  },
+{
+  title: "Bizflow",
+  description: "A business workflow management application designed to simplify processes, organise information, and improve operational efficiency.",
+  category: "Web",
+  tags: ["Laravel", "PostgreSQL"],
+  codeUrl: "https://github.com/ayrilxo/bizflow",
+},
 ];
 
 export const experience: TimelineItem[] = [
+
   {
     title: "Software Engineer",
-    place: "Company name",
-    period: "2024 to now",
-    description: "One or two lines on what you work on and what you are proud of.",
+    place: "Khind IQ Sdn Bhd",
+    period: "Jan 2025 – Present",
+    description:
+      "Develop and maintain business applications using Laravel, PHP, React, and PostgreSQL. Work on REST APIs, database management, application enhancements, and production issue resolution, while contributing to system improvements and technical decisions.",
   },
   {
-    title: "Junior Developer",
-    place: "Company name",
-    period: "2022 to 2024",
-    description: "One or two lines on what you worked on.",
+    title: "Back-End Developer Intern",
+    place: "Khind Holding Sdn Bhd",
+    period: "Sept 2024 – Jan 2025",
+    description:
+      "Developed backend features and business applications using Laravel, PHP, and PostgreSQL. Contributed to internal systems including Promo Bundling, Sales Order Tracker, and Business Partner Information, translating business requirements into functional solutions.",
   },
+
 ];
 
 export const education: TimelineItem[] = [
   {
-    title: "Degree name",
-    place: "University name",
-    period: "2018 to 2022",
-    description: "Your focus, final project or anything worth mentioning.",
+    title: "Bachelor of Computer Science (Hons.)",
+    place: "Universiti Teknologi MARA (UiTM), Shah Alam",
+    period: "2022 – 2024",
+    description:
+      "Focused on software development, algorithms, database systems, and software engineering. Final Year Project: BlockVote, a partially decentralized voting system using blockchain technology.",
+  },
+  {
+    title: "Diploma in Computer Science",
+    place: "Universiti Teknologi MARA (UiTM), Tapah",
+    period: "Jan 2020 - Sept 2022",
+    description:
+      "Built a foundation in programming, database management, computer systems, and software development.",
   },
 ];
 
 export const socials: SocialLink[] = [
   { label: "GitHub", url: "https://github.com/ayrilxo" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/muhammad-aiman-bb4962227/" },
 ];
 
 // The links shown in the navigation bar. Each `id` matches a section id.
