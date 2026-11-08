@@ -12,39 +12,38 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
   // Build the filter list from the data: ["All", "Web", "Mobile", ...]
-  const categories = ["All", ...new Set(projects.map((project) => project.category))];
+  const categories = [...new Set(projects.map((project) => project.category))];
+  const showFilters = categories.length > 1;
 
   const visibleProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+    activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory);
 
   return (
     <div>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {categories.map((category) => {
-          const isActive = category === activeCategory;
+      {showFilters && (
+        <div className="mb-8 inline-flex flex-wrap gap-1 rounded-full border border-line bg-surface p-1">
+          {["All", ...categories].map((category) => {
+            const isActive = category === activeCategory;
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={isActive}
+                className={`rounded-full px-4 py-1.5 text-sm transition duration-200 active:scale-[0.97] ${
+                  isActive ? "bg-ink text-white" : "text-muted hover:bg-subtle hover:text-ink"
+                }`}
+              >
+                {category}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
-          return (
-            <button
-              key={category}
-              type="button"
-              onClick={() => setActiveCategory(category)}
-              aria-pressed={isActive}
-              className={`rounded-lg px-4 py-2 transition duration-200 active:scale-[0.97] ${
-                isActive ? "bg-ink text-page" : "bg-surface text-ink hover:bg-surface-dark"
-              }`}
-            >
-              {category}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6">
         {visibleProjects.map((project) => (
-          // The key changes with the filter, so cards replay their entrance animation.
-          <ProjectCard key={`${activeCategory}-${project.title}`} project={project} />
+          <ProjectCard key={project.title} project={project} index={projects.indexOf(project)} />
         ))}
       </div>
     </div>

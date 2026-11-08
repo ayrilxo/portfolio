@@ -2,30 +2,45 @@
 
 /* Design tokens for Tailwind color utilities. */
 @theme inline {
-  --color-page: #eeecea;
-  --color-surface: #e4e1dd;
-  --color-surface-dark: #d9d5d0;
-  --color-ink: #333231;
-  --color-muted: #625f5b;
-  --color-accent: #5c6b54;
-  --color-accent-dark: #4a5743;
-  --color-inverse: #333231;
-  --color-inverse-ink: #eeecea;
-  --color-inverse-muted: #adaba9;
+  --color-page: #f8fafc;
+  --color-surface: #ffffff;
+  --color-subtle: #f1f5f9;
+  --color-ink: #0f172a;
+  --color-ink-soft: #1e293b;
+  --color-muted: #475569;
+  --color-faint: #64748b;
+  --color-line: #e2e8f0;
+  --color-line-strong: #cbd5e1;
+  --color-accent: #3b82f6;
+  --color-accent-strong: #2563eb;
+  --color-accent-soft: #eff6ff;
+  --color-live: #16a34a;
 
-  --font-sans: var(--font-schibsted), system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  /* Used as `animate-rise` for the hero entrance. */
-  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
-  @keyframes rise {
+  --animate-enter: enter 0.8s var(--ease-out-soft) both;
+  --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
+
+  @keyframes enter {
     from {
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
       transform: none;
+    }
+  }
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 rgb(22 163 74 / 0.45);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 6px rgb(22 163 74 / 0);
     }
   }
 }
@@ -39,29 +54,81 @@ html {
 body {
   background: var(--color-page);
   color: var(--color-ink);
+  font-feature-settings: "ss01", "cv11";
 }
 
-/* Link underline that fades in on hover. */
+::selection {
+  background: #dbeafe;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .link {
-  text-decoration-line: underline;
-  text-decoration-color: transparent;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  transition: text-decoration-color 0.2s;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition:
+    background-size 0.35s var(--ease-out-soft),
+    color 0.2s;
+}
+.link:hover {
+  background-size: 100% 1px;
 }
 
-.link:hover {
-  text-decoration-color: currentColor;
+.grid-backdrop {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: grow-x linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+.scroll-progress {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
