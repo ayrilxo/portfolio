@@ -1,5 +1,4 @@
 // All the text on the site lives in this file.
-// To update the site, edit the values below. The components read from here.
 
 export type SkillGroup = {
   name: string;
@@ -9,9 +8,9 @@ export type SkillGroup = {
 export type Project = {
   title: string;
   description: string;
-  category: string; // filter buttons appear once there are two or more categories
+  category: string; 
   tags: string[];
-  image?: string; // path inside /public, e.g. "/projects/my-app.png"
+  image?: string; 
   liveUrl?: string;
   codeUrl?: string;
 };
@@ -21,8 +20,8 @@ export type TimelineItem = {
   place: string;
   period: string;
   description: string;
-  current?: boolean; // shows the "Current" badge and the line in the hero
-  highlights?: string[]; // systems or topics worth calling out
+  current?: boolean; 
+  highlights?: string[];
   stack?: string[];
 };
 
@@ -35,9 +34,8 @@ export const profile = {
   name: "Aiman Ashri",
   role: "Software Engineer",
   intro: "Turning complex problems into practical, reliable software solution.",
-  photo: "/profile.jpeg", // e.g. "/me.jpg" in /public. Leave empty to show your initials.
+  photo: "/profile.jpeg", 
   email: "ayman160@gmail.com",
-  // The stack shown along the bottom of the hero.
   coreStack: ["Laravel", "PHP", "React", "Next.js", "PostgreSQL"],
 };
 
@@ -101,7 +99,7 @@ export const experience: TimelineItem[] = [
     current: true,
     description:
       "Develop and maintain business applications using Laravel, PHP, React, and PostgreSQL. Work on REST APIs, database management, application enhancements, and production issue resolution, while contributing to system improvements and technical decisions.",
-    stack: ["Laravel", "PHP", "React", "PostgreSQL", "REST APIs"],
+    stack: ["Laravel", "PHP", "React", "PostgreSQL", "REST APIs",'Python','Next.js'],
   },
   {
     title: "Back-End Developer Intern",
